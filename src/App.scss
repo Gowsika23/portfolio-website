@@ -1,0 +1,461 @@
+// Reset Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+
+
+// Header Styles
+.header {
+  position: sticky;
+  top: 0;
+  background: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  transition: background-color 0.3s ease; /* Smooth transition on background change */
+
+  &:hover {
+    background-color: #444; /* Darker background on hover */
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+  }
+
+  nav {
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      /* Add underline effect */
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #f0a500;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: #f0a500;
+        transform: scale(1.1); /* Slight scaling on hover */
+        
+        /* Underline animation */
+        &:before {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+// Section Styles
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// About Me Section
+.about-me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #fd166fad; /* Light background color */
+  color: #0f0f0ff5;
+  height: 100vh;
+  text-align: left;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 60%;
+}
+
+.about-text h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.role-text {
+  font-size: 2.5rem;
+  font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
+  color: #f5f9fa;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(30) 1 forwards, slideIn 1s ease-out forwards;
+  margin: 20px 0;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 300px;        // Adjust the width as per your design needs
+  height: auto;        // Keeps the aspect ratio of the image
+  border: 4px solid #000; // Adds a border around the image
+  border-radius: 10px;  // Rounds the corners of the image
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Adds a subtle shadow for effect
+}
+
+
+.about-me p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-200px);
+  animation: slideIn 1.5s ease-out forwards;
+  animation-delay: 2s; /* Delays the paragraph animation */
+  font-family: 'Georgia', serif;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInImage {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+// Skills Section
+.skills {
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid layout */
+    gap: 1.5rem;
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      border: 1px solid #070707;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+      svg {
+        margin-bottom: 0.5rem;
+        font-size: 2rem; /* Ensure icons are visible */
+        color: #f0a500;
+        transition: color 0.3s ease; /* Smooth transition for icon color */
+      }
+
+      p {
+        font-weight: bold;
+        color: #555;
+        transition: color 0.3s ease; /* Smooth transition for text color */
+      }
+
+      &:hover {
+        transform: translateY(-10px); /* Slightly lift the skill card on hover */
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+        background-color: #f0f0f0; /* Change background on hover */
+
+        svg {
+          color: #070707; /* Darker icon color on hover */
+        }
+
+        p {
+          color: #333; /* Change text color to darker shade */
+        }
+      }
+    }
+  }
+}
+
+     
+
+// Projects Section
+
+.projects {
+  padding: 50px 20px;
+  background-color: #f825ca65;
+}
+
+.projects h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column; /* Ensure the projects stack vertically */
+  gap: 30px; /* Add space between each project */
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-details {
+  padding: 20px 0 0 0;
+}
+
+.project-details h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.project-details p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+// Experience Section
+
+.experience {
+  padding: 40px;
+}
+
+.experience-list {
+  display: flex; /* Use flexbox to display items side by side */
+  flex-wrap: wrap; /* Allow wrapping of items to the next line if needed */
+  gap: 20px; /* Add space between the experience cards */
+  justify-content: space-between; /* Distribute items with space in between */
+}
+
+.experience-card {
+  display: flex;
+  flex-direction: column; /* Stack image and details vertically */
+  width: 30%; /* Make each card take up 30% of the container width */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth hover transition */
+
+  &:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+    background-color: #f9f9f9; /* Change the background color slightly */
+  }
+}
+
+.experience-image {
+  width: 100%; /* Make the image take up the full width of the card */
+  height: auto; /* Maintain the aspect ratio */
+  border-radius: 8px;
+  object-fit: cover; /* Ensure the image covers the area */
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+  
+  /* Hover effect for the image */
+  &:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+  }
+}
+
+.experience-details {
+  padding-top: 15px;
+}
+
+.experience-details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  transition: color 0.3s ease; /* Smooth text color transition */
+
+  &:hover {
+    color: #f0a500; /* Highlight the title on hover */
+  }
+}
+
+.experience-details p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  transition: color 0.3s ease; /* Smooth transition for paragraph text */
+
+  &:hover {
+    color: #333; /* Darker text on hover */
+  }
+}
+
+
+      
+
+// Contact Section
+.contact {
+  background: #dbf01dc4;
+  color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      background: #52f820;
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: #09d43c;
+      }
+    }
+  }
+}
+
+// Footer Styles (Optional if added later)
+// src/Footer.scss
+
+.footer {
+  background-color: #333;
+  color: #c9c1c1;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 2rem;
+
+  .footer-content {
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      
+      a {
+        color: #f0ecec;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease;
+        
+        &:hover {
+          color: #f0a500;
+          transform: scale(1.1);
+        }
+
+        i {
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+      }
+    }
+  }
+}
+
+
